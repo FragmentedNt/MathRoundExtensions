@@ -107,7 +107,7 @@ namespace MathRoundExtension
         /// <returns>整形後数値</returns>
         public static double Normalize(double val)
         {
-            return Math.Abs(val) / Math.Pow(10, Digit(val));
+            return Round(Math.Abs(val / Math.Pow(10, Digit(val))), 15);
         }
 
         /// <summary>
