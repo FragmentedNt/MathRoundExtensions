@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using MathRoundExtension;
+using static MathRoundExtension.MathEx;
 
 namespace MathExLibraryTest
 {
@@ -112,6 +114,39 @@ namespace MathExLibraryTest
                 var result = MathEx.Digit(vals[i]);
                 Assert.AreEqual(result, ans[i]);
             }
+        }
+
+        [TestMethod()]
+        public void TrimUpTest2()
+        {
+            double val = -0.003048;
+            double ans = -0.0031;
+            double res = TrimUp(val, 2);
+            Assert.AreEqual(res, ans
+                        , $"{Environment.NewLine}"
+                        + $"input:{val} answer:{ans} actual:{res}");
+        }
+
+        [TestMethod()]
+        public void HeadvalueTest2()
+        {
+            double val = -0.003048;
+            int ans = 31;
+            var res = HeadValue(TrimUp(val, 2), 2);
+            Assert.AreEqual(res, ans
+                        , $"{Environment.NewLine}"
+                        + $"input:{val} answer:{ans} actual:{res}");
+        }
+
+        [TestMethod()]
+        public void NormalizeTest2()
+        {
+            double val = -0.0031;
+            double ans = 3.1;
+            var res = Normalize(val);
+            Assert.AreEqual(res, ans
+                        , $"{Environment.NewLine}"
+                        + $"input:{val} answer:{ans} actual:{res}");
         }
     }
 }
